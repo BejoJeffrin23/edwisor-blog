@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="row" *ngIf="currentBlog">
+      <div class="col-md-12">
+        <h2>{{currentBlog.title}}</h2>
+        <small>blog number {{currentBlog.blogId}}</small>
+        <p>posted by {{currentBlog.author}} on {{currentBlog.created | date}}</p>
+        <div [innerHtml]="currentBlog.bodyHtml"></div>
+        <hr>
+        <h5>Category -{{currentBlog.Category}}</h5>
+      </div>
+    </div>
+    <hr>
+    <div class="row" *ngIf="currentBlog">
+      <div class="col-md-4">
+        <a class="btn btn-primary" [routerLink]="['/edit',currentBlog.blogId]">edit</a>
+   
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-danger" (click)='deleteblog()'>delete</a>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-warning" (click)='goBack()'>go back</a>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

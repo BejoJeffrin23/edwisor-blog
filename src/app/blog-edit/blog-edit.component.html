@@ -1,0 +1,34 @@
+
+
+<div class="container">
+    <div class="row" style="text-align:left">
+    <div class="col-md-12">
+      <form #createBlogForm='ngForm' (ngSubmit)='editBlog()'>
+        <div class="form-group">
+  
+          <label>blog title</label>
+          <input type="text" name="title" [(ngModel)]='currentBlog.title' #ttitle="ngModel" class="form-control" placeholder="enter blog title"
+          required>
+        </div>
+        <div [hidden]='ttitle.valid||ttitle.pristine' class="alert alert-danger">
+          blog title required</div>
+          <div class="form-group">
+            <label>description</label>
+            <input type="text" name='description' [(ngModel)]='currentBlog.description' class="form-control" placeholder="enter"
+            required>
+          </div>
+          <div class="form-group">
+              <label>enter blog body</label>
+              <textarea  name='bodyHtml' [(ngModel)]='currentBlog.bodyHtml'  class="form-control" rows='3' required></textarea>
+            </div>
+            <div class="form-group">
+                <label>category</label>
+                <select  [(ngModel)]='currentBlog.blogCategory' #category='ngModel' name="blogCategory" class="form-control" id="category" required>
+              <option *ngFor="let category of possibleCategories" [value]="category">{{category}}</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-default" [disabled]='!createBlogForm.form.valid'>post it</button>
+      </form>
+    </div>
+    </div>
+  </div>
